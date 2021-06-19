@@ -14,9 +14,9 @@ app.use(express.static('public'))
 
 app.use('/', require('./server/routes/routers'))
 
-const PORT = process.env.PORT || 3000
-
-app.listen(PORT, () => {
-    console.log("Server running on port 3000");
-})
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
 
